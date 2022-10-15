@@ -6,6 +6,7 @@ public class GameInstaller : MonoInstaller
 {
     public override void InstallBindings() {
         Container.BindInterfacesAndSelfTo<TemperatureData>().AsSingle();
+        Container.BindInterfacesAndSelfTo<JsonDeserializers>().AsSingle();
         
         Container.BindInterfacesAndSelfTo<TemperatureService>().AsSingle();
     }
