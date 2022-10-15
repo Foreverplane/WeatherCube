@@ -470,6 +470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce759e4765488624da88e157d6b8f897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _CurrentTemperature:
+    Value:
+      value: 0
 --- !u!114 &782104788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: bba8caee414d87449b8fc829f485b315, type: 2}
+  - {fileID: 11400000, guid: 427136372e345eb4f8fb6c69ee383689, type: 2}
   _monoInstallers:
   - {fileID: 782104787}
   _installerPrefabs:

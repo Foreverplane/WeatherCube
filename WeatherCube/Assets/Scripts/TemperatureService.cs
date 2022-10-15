@@ -10,6 +10,10 @@ public class TemperatureService : IInitializable {
 	private JsonDeserializers _JsonDeserializers;
 	[Inject]
 	private WeatherRequestData _WeatherRequestData;
+	[Inject]
+	private ITemperatureConverter _TemperatureConverter;
+	[Inject]
+	private CurrentTemperature _CurrentTemperature;
 	public async void Initialize() {
 		async UniTask<T> GetTextAsync<T>(UnityWebRequest req) {
 			var op = await req.SendWebRequest();
@@ -26,8 +30,9 @@ public class TemperatureService : IInitializable {
 			Debug.LogError("Cant get forecast!");
 			return;
 		}
-		float finalTemp = Mathf.Round((float)((forecast.main.temp - 273.0f)*10))/10; //holds the actual converted temperature
-
+		var temp = _TemperatureConverter.Temperature(forecast.main.temp);
+		Debug.Log($"Temperature in {_WeatherRequestData.City} is {temp} {_TemperatureConverter.Unit}");
+		_CurrentTemperature.Value.SetValueAndForceNotify(temp);
 	}
 
 }
