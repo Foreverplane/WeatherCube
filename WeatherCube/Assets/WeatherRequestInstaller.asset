@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6643cb22fe1b29142994ab25beb08f07, type: 3}
+  m_Name: WeatherRequestInstaller
+  m_EditorClassIdentifier: 
+  _WeatherRequestData:
+    City: Austin
+    Zip: 78734
+    ApiKey: cab5546c635262d21757c2169597d35e
+    StateCode: TX
+    CountryCode: US
+    Exclude: hourly,daily
