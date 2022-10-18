@@ -4,10 +4,10 @@ using Testing;
 using UnityEngine;
 using UnityEngine.TestTools;
 using Zenject;
-public partial class TestPlayMode {
+public partial class Test_PlayMode {
 	private const int TEMPERATURE_REQUEST_TIME = 10;
 	[UnityTest]
-	public IEnumerator Test_TemperatureServiceOK() {
+	public IEnumerator Is_TemperatureService_Can_Get_Temperature_In_10sec() {
 		var container = new DiContainer();
 		container.Bind<WeatherRequestData>().AsSingle();
 		container.Bind<ITemperatureConverter>().FromInstance(new FTemperature()).AsSingle();
