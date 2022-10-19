@@ -1,5 +1,19 @@
 # WeatherCube
 
+## Description of the result of the test task
+
+The game starts from scene "SampleScene".  
+![image](https://user-images.githubusercontent.com/28690609/196653034-b9c89f44-7981-4c4f-9410-f65582faa17b.png)
+
+After the game starts you can change / test the temperature by changing GameTemperatureData.Property in GameMainInstaller in inspector (SceneContext gameobject) (1).
+Also you can repeat the request by pressing the button "Request temperature" (2).    
+![image](https://user-images.githubusercontent.com/28690609/196662609-4b25b56b-ff54-4319-b993-de60e4faa5ec.png)  
+
+
+To test rotation reaction for color changes 
+
+
+
 ## Task
 
 Build a small unity application that places a cube in the center of the screen. The application periodically checks the temperature in Austin, TX (zip code 78734) and changes the color and rotation of the cube depending on the current temperature in Austin.
