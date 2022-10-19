@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "ee54559532c5388fc666f71f07800fbf69cbded7"
     },
+    "com.madsbangh.easybuttons": {
+      "version": "https://github.com/madsbangh/EasyButtons.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "39da70419a2dc9ce0059b40dd64abcdfcef58ea1"
+    },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
       "depth": 0,

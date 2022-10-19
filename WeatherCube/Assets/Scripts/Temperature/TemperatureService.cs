@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Testing;
 using UnityEngine;
@@ -15,9 +16,19 @@ public class TemperatureService : IInitializable {
 	private ITemperatureConverter _TemperatureConverter;
 	[Inject]
 	private CurrentTemperatureData _CurrentTemperatureData;
+	[Inject]
+	private RequestTemperatureProvider _RequestTemperatureProvider;
+
 	public Result InitializationResult { get; private set; }
 
 	public async void Initialize() {
+		await RequestTemperature();
+		_RequestTemperatureProvider.Action += OnAction;
+	}
+	private async void OnAction() {
+		await RequestTemperature();
+	}
+	private async Task RequestTemperature() {
 		var geoUri = $"http://api.openweathermap.org/geo/1.0/direct?q={_WeatherRequestData.City},{_WeatherRequestData.StateCode},{_WeatherRequestData.CountryCode}&limit={1}&appid={_WeatherRequestData.ApiKey}";
 		var geo = await GetTextAsync<Response.Geo.Root>(UnityWebRequest.Get(geoUri));
 		var forecastUri = $"http://api.openweathermap.org/data/2.5/weather?lat={geo.lat}&lon={geo.lon}&appid={_WeatherRequestData.ApiKey}";
