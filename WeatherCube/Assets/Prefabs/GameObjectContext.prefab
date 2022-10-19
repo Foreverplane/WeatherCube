@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1454057393707256825}
   - component: {fileID: 4517326122393127956}
-  - component: {fileID: -8822794120822982726}
+  - component: {fileID: 449327380}
+  - component: {fileID: 1574740976619649763}
   m_Layer: 0
   m_Name: GameObjectContext
   m_TagString: Untagged
@@ -46,13 +47,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08eca9f7688a0a24685b89133b020c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scriptableObjectInstallers: []
+  _scriptableObjectInstallers:
+  - {fileID: 11400000, guid: 5d6f2c2b87ef15d409735f2d3cdf0e42, type: 2}
+  - {fileID: 11400000, guid: cdec7f06ffc7d2d44838376fb3a399ee, type: 2}
   _monoInstallers:
-  - {fileID: -8822794120822982726}
+  - {fileID: 449327380}
   _installerPrefabs: []
   _autoRun: 1
   _kernel: {fileID: 0}
---- !u!114 &-8822794120822982726
+--- !u!114 &449327380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,6 +65,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8987db1034f896940a8df14a7dd06f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Renderer: {fileID: 6838936184257310804}
+  _Transform: {fileID: 1454057393707256825}
+--- !u!114 &1574740976619649763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3692375858888603409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aad3c5d3de2449dbfa00a7686a0cd4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6838936184257310806

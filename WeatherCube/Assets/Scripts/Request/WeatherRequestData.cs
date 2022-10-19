@@ -7,6 +7,8 @@ public class WeatherRequestData {
 	public string StateCode = "TX";
 	public string CountryCode = "US";
 	public string Exclude = "hourly,daily";
+	
+
 }
 
 

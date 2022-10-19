@@ -11,7 +11,7 @@ public partial class Test_PlayMode {
 		var container = new DiContainer();
 		container.Bind<WeatherRequestData>().AsSingle();
 		container.Bind<ITemperatureConverter>().FromInstance(new FTemperature()).AsSingle();
-		container.Bind<CurrentTemperature>().AsSingle();
+		container.Bind<CurrentTemperatureData>().AsSingle();
 		container.Bind<JsonDeserializers>().AsSingle();
 		container.BindInterfacesAndSelfTo<TemperatureService>().AsSingle();
 		float waitTime = 0;

@@ -473,6 +473,7 @@ MonoBehaviour:
   _CurrentTemperature:
     Value:
       value: 0
+  _Cube: {fileID: 3692375858888603409, guid: 916f5c07f804fce40af4d7fd38e1027b, type: 3}
 --- !u!114 &782104788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,11 +488,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: bba8caee414d87449b8fc829f485b315, type: 2}
-  - {fileID: 11400000, guid: 427136372e345eb4f8fb6c69ee383689, type: 2}
+  - {fileID: 11400000, guid: ecd91e74c488b2f47a19d272aabbe4b6, type: 2}
   _monoInstallers:
   - {fileID: 782104787}
-  _installerPrefabs:
-  - {fileID: 175332649767568919, guid: bda613afdb7c94d4faa42b23fea0fc50, type: 3}
+  _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
     m_PersistentCalls:

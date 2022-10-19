@@ -3,10 +3,17 @@ using Zenject;
 
 public class GameMainInstaller : MonoInstaller {
     [SerializeField]
-    private CurrentTemperature _CurrentTemperature;
+    private CurrentTemperatureData currentTemperatureData;
+
+
+    [SerializeField]
+    private Object _Cube;
     public override void InstallBindings() {
         
         Container.BindInterfacesAndSelfTo<TemperatureService>().AsSingle();
-        Container.BindInterfacesAndSelfTo<CurrentTemperature>().FromInstance(_CurrentTemperature).AsSingle();
+        Container.BindInterfacesAndSelfTo<CurrentTemperatureData>().FromInstance(currentTemperatureData).AsSingle();
+        Container.BindFactory<Cube, Cube.Factory>().FromComponentInNewPrefab(_Cube).UnderTransformGroup("Cubes");
+        Container.BindInterfacesTo<CubeSpawner>().AsSingle();
     }
 }
+

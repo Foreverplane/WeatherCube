@@ -4,17 +4,6 @@ using Testing;
 using UnityEngine;
 using UnityEngine.Networking;
 using Zenject;
-namespace Testing {
-	public enum ResultType {
-		None,
-		Success,
-		Failure,
-	}
-	public struct Result {
-		public ResultType ResultType;
-		public string Message;
-	}
-}
 
 public class TemperatureService : IInitializable {
 
@@ -25,13 +14,14 @@ public class TemperatureService : IInitializable {
 	[Inject]
 	private ITemperatureConverter _TemperatureConverter;
 	[Inject]
-	private CurrentTemperature _CurrentTemperature;
+	private CurrentTemperatureData _CurrentTemperatureData;
 	public Result InitializationResult { get; private set; }
 
 	public async void Initialize() {
-		Debug.Log($"Start init: {GetType().Name}");
-		var geo = await GetTextAsync<Response.Geo.Root>(UnityWebRequest.Get($"http://api.openweathermap.org/geo/1.0/direct?q={_WeatherRequestData.City},{_WeatherRequestData.StateCode},{_WeatherRequestData.CountryCode}&limit={1}&appid={_WeatherRequestData.ApiKey}"));
-		var forecast = await GetTextAsync<Response.Forecast.Root>(UnityWebRequest.Get($"http://api.openweathermap.org/data/2.5/weather?lat={geo.lat}&lon={geo.lon}&appid={_WeatherRequestData.ApiKey}"));
+		var geoUri = $"http://api.openweathermap.org/geo/1.0/direct?q={_WeatherRequestData.City},{_WeatherRequestData.StateCode},{_WeatherRequestData.CountryCode}&limit={1}&appid={_WeatherRequestData.ApiKey}";
+		var geo = await GetTextAsync<Response.Geo.Root>(UnityWebRequest.Get(geoUri));
+		var forecastUri = $"http://api.openweathermap.org/data/2.5/weather?lat={geo.lat}&lon={geo.lon}&appid={_WeatherRequestData.ApiKey}";
+		var forecast = await GetTextAsync<Response.Forecast.Root>(UnityWebRequest.Get(forecastUri));
 		if (forecast == null) {
 			Debug.LogError("Cant get forecast!");
 			InitializationResult = new Result {
@@ -42,7 +32,7 @@ public class TemperatureService : IInitializable {
 		}
 		var temp = _TemperatureConverter.Temperature(forecast.main.temp);
 		// Debug.Log($"Temperature in {_WeatherRequestData.City} is {temp} {_TemperatureConverter.Unit}");
-		_CurrentTemperature.Value.SetValueAndForceNotify(temp);
+		_CurrentTemperatureData.Property.SetValueAndForceNotify(temp);
 		InitializationResult = new Result() {
 			ResultType = ResultType.Success
 		};
