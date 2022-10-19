@@ -1,6 +1,6 @@
 # WeatherCube
 
-## Description of the result of the test task
+## Summary
 
 ### Start game
 The game starts from scene "SampleScene".  
